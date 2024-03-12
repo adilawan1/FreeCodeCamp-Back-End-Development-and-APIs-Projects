@@ -1,0 +1,24 @@
+ try
+    {
+     const formData = new FormData() // event.target is the form
+      formData.append("username", "Chris");
+      fetch("https://qualiarecipes.us11.list-manage.com/subscribe/post?u=5d18829609ac5b15cda2fff9e&id=0a9ce24d78&f_id=002eaae0f0", {
+        method: 'POST',
+        body:formData
+    }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        console.log(response.json()) // or response.text() or whatever the server sends
+    }).then((body) => {
+      console.log(body)
+        // TODO handle body
+    }).catch((error) => {
+      console.log(error)
+        // TODO handle error
+    });}
+    catch(e){
+      console.log(e)
+    }
+};
+submit()
